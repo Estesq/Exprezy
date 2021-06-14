@@ -1,0 +1,54 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Exprezy</span>
+    <span class="example-spacer"></span>
+   
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md"></div>
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-header text-center border-0 py-3">
+          <p class="m-0 text-muted ">Login</p>
+        </div>
+        <div class="card-body px-lg-5 pt-2">
+          <div class="my-2" *ngIf="error">
+            <div class="alert alert-warning alert-dismissible fade show">
+              <h5>{{ error }}</h5>
+            </div>
+          </div>
+          <form (ngSubmit)="submit()" class="text-center" style="color: #757575;">
+            <div class="md-form my-4">
+              <input type="text" id="username" class="form-control" name="username" [(ngModel)]="username"
+                placeholder="ID">
+            </div>
+            <div class="md-form my-4">
+              <input type="password" id="password" class="form-control" name="password" [(ngModel)]="password"
+                placeholder="Password">
+            </div>
+            <button class="btn btn-outline-info btn-rounded btn-block  my-4 waves-effect z-depth-0"
+              style="border-radius: 2rem;" type="submit" value="submit">Login</button>
+
+            <p>Not a member?
+              <a class="text-primary" (click)="register()">Register</a>
+            </p>
+            <h6 class="text-danger small"> One will be able to login once admin approves the account.</h6>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md"></div>
+  </div>
+</div>
+
+
+<footer class="page-footer text-center font-small text-muted fixed-bottom wow fadeIn">
+  <div class="footer-copyright py-3">
+    © 2020 Copyright:
+    <a href=""> helixstack.in </a>
+  </div>
+</footer>

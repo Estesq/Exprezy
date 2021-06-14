@@ -1,0 +1,27 @@
+/* table, th, td {
+    border: 1px solid transparent;
+    border-collapse: collapse;
+    padding: 5px 15px;
+  }
+ */
+
+
+/* td {
+  text-align: right;
+}
+ */
+.verticalLine {
+    border-left: 1px solid #e5e5d9;
+  }
+
+  @media only screen and (max-width: 767) {
+    .br {
+        display: inline;
+    }
+}
+
+ @media only screen and (min-width: 767) {
+    .br {
+        display: none;
+    }
+}

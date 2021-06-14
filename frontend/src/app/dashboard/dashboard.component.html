@@ -1,0 +1,59 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar style="text-align: center;">
+      <!-- <h3>Exprezy</h3> -->
+      <img class="logo" src="./assets/images/logo.png">
+    </mat-toolbar>
+    <hr class="hr">
+    <mat-nav-list>
+      <a mat-list-item routerLink="viewreq" routerLinkActive="active-list-item">
+        <mat-icon class="mod" aria-hidden="false">assignment </mat-icon>
+        View Requests
+      </a>
+      <a mat-list-item routerLink="acceptedjob" routerLinkActive="active-list-item">
+        <mat-icon class="mod" aria-hidden="false">thumb_up_alt </mat-icon>
+        Accepted Requests
+      </a>
+      <a mat-list-item routerLink="ongoingjob" routerLinkActive="active-list-item">
+        <mat-icon class="mod" aria-hidden="false">build</mat-icon>
+        Ongoing Services
+      </a>
+      <a mat-list-item routerLink="completed" routerLinkActive="active-list-item">
+        <mat-icon class="mod" aria-hidden="false">done_outline </mat-icon>
+        Completed Services
+      </a>
+      <hr mat-list-item class="mt-1 mb-0 ">
+      <!-- <a mat-list-item class="mt-2" routerLink="status" routerLinkActive="active-list-item">
+        <mat-icon class="mod" aria-hidden="false">construction </mat-icon>
+        status
+      </a> -->
+      <a mat-list-item routerLink="next" routerLinkActive="active-list-item">
+        <mat-icon class="mod" aria-hidden="false">construction </mat-icon>
+        Next
+      </a>
+
+      <hr mat-list-item class="mt-1 mb-0 ">
+
+      <a mat-list-item class="mt-2" routerLink="offline" routerLinkActive="active-list-item">
+        <mat-icon class="mod" aria-hidden="false">note_add </mat-icon>
+        Create jobcard
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span></span>
+      <span class="spacer"></span>
+      <h4 class="userid">{{userId}}</h4>
+      <button mat-raised-button color="accent" (click)="logout()">logout</button>
+    </mat-toolbar>
+    <div class="container mt-3">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

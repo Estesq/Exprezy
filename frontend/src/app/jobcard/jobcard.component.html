@@ -1,0 +1,70 @@
+<h4 class="d-flex">
+  <span class="material-icons mx-2"> chrome_reader_mode </span>
+  {{data.vehicleno}}
+  <span class="verticalLine mx-2"></span>
+  <span class="material-icons mx-2"> speed </span>
+  {{data.id.vehicle.cc}}CC
+  {{data.id.vehicle.type}}
+  {{data.id.vehicle.model}}
+</h4>
+<mat-dialog-content>
+  <table class="table text-center">
+    <tr *ngFor="let job of jobs; let i= index" [attr.data-index]='i'>
+      <td>
+        {{job}}
+      </td>
+      <td>
+        <button mat-stroked-button color="primary" (click)="removejob(i)">remove</button>
+      </td>
+    </tr>
+  </table>
+  <hr>
+  <div>
+    <input [(ngModel)]="newjob">
+    <button mat-raised-button color="primary" (click)="addjob()">ADD jobs</button>
+  </div>
+
+  <div class="input-group mb-3">
+    <select class="custom-select" id="inputGroupSelect02" [(ngModel)]="newjob">
+      <option selected disabled>Choose...</option>
+      <option value="tyre">tyre</option>
+      <option value="chain">chain</option>
+      <option value="indicator">indicator</option>
+    </select>
+    <div class="input-group-append">
+      <button mat-raised-button color="primary" class="input-group-text" for="inputGroupSelect02"
+        (click)="addjob()">Add jobs</button>
+    </div>
+  </div>  
+
+  <hr>
+
+  <div class="form-group row">
+    <label for="example-datetime-local-input" class="col-3 col-form-label">In-Date-time</label>
+    <div class="col-9">
+      <input name="datetime-start" class="form-control" type="datetime-local" [(ngModel)]="inDate"
+        (ngModelChange)="inDate = $event" id="example-datetime-local-input">
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label for="example-datetime-local-input" class="col-3 col-form-label">out-Date</label>
+    <div class="col-9">
+      <input name="datetime-end" class="form-control" type="datetime-local" [(ngModel)]="outDate"
+        (ngModelChange)="outDate = $event" id="example-datetime-local-input">
+    </div>
+  </div>
+<hr>
+
+<div class="form-group row">
+  <label for="example-text-input" class="col-3 col-form-label">Cost</label>
+  <div class="col-9">
+    <input class="form-control" type="number" [(ngModel)]="cost" placeholder="₹" id="example-text-input">
+  </div>
+</div>  
+
+</mat-dialog-content>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" (click)="startjob(data.id.id)">start</button>
+</div>

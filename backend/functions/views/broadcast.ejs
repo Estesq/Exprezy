@@ -1,0 +1,12 @@
+<%= mobile %>
+<% for (var i in vehicles) { %>
+<%= i %>
+<% } %>
+
+
+<form method="post" action="/broadcast">
+	<input name="vehicleno">
+	<input name="job1">
+	<input name="job2">
+	<button type="submit">click me</button>
+ </form>

@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-md-4" *ngFor="let key of ongoingservice_data">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{key.vehicleOwner}}</mat-card-title>
+                <!-- <mat-card-subtitle> {{key.vehicleNumber}}</mat-card-subtitle> -->
+            </mat-card-header>
+            <mat-card-content>
+                <hr>
+                <div class="d-flex">
+                    <span class="material-icons mx-2"> call </span>
+                    {{key.ownerMobileno}}
+                    <span class="verticalLine mx-3"></span>
+                    <span class="material-icons mx-2"> chrome_reader_mode </span>
+                    {{key.vehicleNumber}}
+                </div>
+                <hr>
+                <div class="d-flex">
+                    <span class="material-icons mx-2"> two_wheeler </span>
+                    {{key.vehicleModel}}
+                    {{key.vehicleCompany}}
+                    <span class="verticalLine mx-3"></span>
+                    <span class="material-icons mx-2"> speed </span>
+                    {{key.cc}} CC
+                    {{key.vehicleType}}
+                </div>
+                <hr>
+                <div class="d-flex">
+                    <span class="material-icons mx-2"> money </span>
+                    {{key.cost}}
+                    <span class="verticalLine mx-3"></span>
+                    <span class="material-icons mx-2"> today </span>
+                    {{key.inDate}}
+                </div>
+                <hr>
+                <div class="d-flex">
+                    <span class="material-icons mx-2"> schedule </span>
+                    {{key.outDate}}
+                </div>
+                <hr>
+
+                <!-- {{key.serviceId}} -->
+                <!-- {{key.message}}<br> -->
+                <table>
+                    <tr *ngFor="let item of key.jobs | keyvalue">
+                        {{item.key}}
+                    </tr>
+                </table>
+            </mat-card-content>
+            <mat-card-actions align="end">
+                <button mat-raised-button color="primary" (click)="updateservice(key.jobs, key.outDate, key.serviceId)">
+                    UPDATE</button>
+                <button mat-raised-button color="warn" (click)="deliver(key)"> DELIVER</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

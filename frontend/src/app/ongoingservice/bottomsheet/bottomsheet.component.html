@@ -1,0 +1,40 @@
+<div>
+    <p class="h4 text-center">Update Info</p>
+</div>
+<div>
+    <input class="form-control" placeholder="Note for customer" [(ngModel)]="message">
+</div>
+
+<!-- <div class="form-group row">
+    <label class="col-3 col-form-label">Note for customer</label>
+    <div class="col-9">
+        <input name="datetime-start" class="form-control" [(ngModel)]="message">
+    </div>
+</div> -->
+<hr>
+<div class="form-group row">
+    <label for="example-datetime-local-input" class="col-2 col-form-label">out-Date</label>
+    <div class="col-10">
+        <input name="datetime-end" class="form-control" type="datetime-local" [(ngModel)]="outdate"
+            (ngModelChange)="outdate = $event" id="example-datetime-local-input">
+    </div>
+</div>
+
+<hr>
+<div>
+    <table>
+        <tr *ngFor="let item of datatoshow">
+            <div *ngIf="datajob[item]; else elseBlock">
+                <mat-checkbox name="{{item}}" [checked]="true" [disabled]="true" (change)="toggle($event, item)">
+                    {{item}}
+                </mat-checkbox>
+            </div>
+            <ng-template #elseBlock>
+                <mat-checkbox name="{{item}}" [checked]="item.value" (change)="toggle($event, item)"> {{item}}
+                </mat-checkbox>
+            </ng-template>
+        </tr>
+    </table>
+</div>
+
+<button mat-raised-button color="primary" (click)="update(message , outdate)">update</button>

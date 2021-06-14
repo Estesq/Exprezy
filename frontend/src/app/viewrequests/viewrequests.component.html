@@ -1,0 +1,51 @@
+{{msg}}
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let key of requesteddata; let i= index" [attr.data-index]='i'>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{key.name}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <hr>
+        <div class="d-flex">
+          <span class="material-icons mx-2"> call </span>
+          {{key.id.split('_')[0]}}
+          <span class="verticalLine mx-3"></span>
+          <span class="material-icons mx-2"> chrome_reader_mode </span>
+          {{key.id.split('_')[1]}}
+        </div>
+        <hr>
+        <div class="d-flex">
+          <span class="material-icons mx-2">home </span>
+          {{key.address}}
+          {{key.pincode}}
+        </div>
+        <hr>
+        <div class="d-flex">
+          <span class="material-icons mx-2"> email </span>
+          {{key.email}}
+        </div>
+        <hr>
+        <div class="d-flex">
+          <span class="material-icons mx-2"> two_wheeler </span>
+          {{key.vehicle.model}}
+          {{key.vehicle.company}}
+          <span class="verticalLine mx-3"></span>
+          <span class="material-icons mx-2"> speed </span>
+          {{key.vehicle.cc}} CC
+          {{key.vehicle.type}}
+        </div>
+        <hr>
+        <div class="d-flex">
+          <span class="material-icons mx-2"> build_circle </span>
+          {{key.requestedservice.job}}
+        </div>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-raised-button color="primary" (click)="acceptjob(key.id, i)"> ACCEPT</button>
+        <button mat-raised-button color="accent" (click)="rejectjob(key.id)">REJECT</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
